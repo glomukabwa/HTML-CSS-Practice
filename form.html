@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="css/rest.css">--><!--I've commented out the reset style cz he says it messes with the inputs and he wants to teach styling from scratch -->
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    
+    <section class="wrapper-main">
+        <form action="example.html" method="post">
+            <!--action indicates the file the data is going to-->
+            <!--get and post both send data however the difference is that:-->
+            <!--with get, all the data sent by the form will be displayed in the url while with the post, it won't-->
+            <!--Normally we use the post method unless there is a reason to use the get method-->
+            <!--I've commented out the reset style cz he says it messes with the inputs and he wants to teach styling from scratch -->
+            <label for="firstname">First name:</label><!--for is used to link the label to the input. It has to have the same name as the id cz id is the unique identifier-->
+            <br>
+            <input type="text" id="firstname" name="firstname" placeholder="First name" ><!--value="Daniel"--><!--I've placed it outside cz u can't comment inside the brackets so if you want to see it, return it inside the brackets-->
+            <!--id is a unique identifier of the input while name is how we are able to grab the data of the input. People normally give them the same values but can you change that if you want. I did it just to have an easier time following him-->
+            <!--place holder is self-explanatory but value is data that appears before sb has typed, just like place holder but then is not light grey.Place holder will only show if you delete value-->
+            <!--value comes in handy when you want to ensure that if there is an error and a user goes back a page, she doesn't have to retype everything-->
+
+            <br><br>
+            <label for="pwd">Password:</label>
+            <br>
+            <input type="password" id="pwd" name="pwd" placeholder="Password" >
+
+            <br><br>
+            <label for="em">Email:</label>
+            <br>
+            <input type="email" id="em" name="em" placeholder="Email" >
+
+            <br><br>
+            <label for="message">Write something cool:</label>
+            <br>
+            <textarea name="message" id="message" placeholder="Write a message..."></textarea>
+            <!--You can use css to style the size of the text area or you can use cols and rows-->
+
+            <br><br>
+            <label>Pick your eye color</label><br><!--Note that I have not linked this label with anything. The radio buttons each have their own ids so note that you can do this-->
+            <!--Radio buttons-->
+            <input type="radio" id="eyecolorblue" name="eyecolor" value="Blue">
+            <!--for radio buttons the label comes after the radio button-->
+            <!--value in the radio buttons is used to identify what the user has selcted, each button has it's own value to be able to identify which one is picked. Idk why name is not used for that but just make sure you've put value.Same for checkboxes. I think it's cz name is used for inputs that you are typing but for buttons, you are not typing anything so we need to assign values.-->
+            <label for="eyecolorblue">Blue</label>
+            <input type="radio" id="eyecolorbrown" name="eyecolor" value="Brown">
+            <label for="eyecolorbrown">Brown</label>
+            <input type="radio" id="eyecolorgreen" name="eyecolor" value="Green">
+            <label for="eyecolorgreen">Green</label >
+            <!--Note that the radio buttons have the same name cz they are all eye colors. This ensures that the user can only pick one-->
+
+            <br><br>
+            <label>What pet do you have?</label><br>
+            <!--Check boxes-->
+            <input type="checkbox" id="petcat" name="petcat" value="Cat">
+            <label for="petcat">Cat</label>
+            <input type="checkbox" id="petdog" name="petdog" value="Dog">
+            <label for="petdog">Dog</label>
+            <input type="checkbox" id="petbird" name="petbird" value="Bird">
+            <label for="petbird">Bird</label>
+            <!--Note that each checkbox has its own name so you can pick more than one at once-->
+
+            <br><br>
+            <label>Car type you own?</label><br>
+            <!--Dropdown-->
+            <select name="cartype" id="cartype">
+                <option value="None">None</option><!--The first item is the default selected item-->
+                <option value="Ford">Ford</option>
+                <option value="Mustang">Mustang</option>
+                <option value="Toyota">Toyota</option>
+            </select>
+
+            <br><br>
+            <!--Submitting the data-->
+            <!--<input type="submit">You can use the submit input type to submit but button comes with more perks-->
+            <button type="submit" value="submit">Send data</button>
+
+            <!--Before starting your css styling, test how the form will look with the reset stylesheet. Things will start disappearing. So with forms, it's beter to exclude the reset stylesheet-->
+            </form>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+main{
+    width:100%;
+    /*I'm not changing all the px to rem cz I'm not sure about some but if you want to be sure, increase ur default size in your browser and see what needs to be changed*/
+    height: calc(100vh - 60px);/*100vh is the height of the page and 60px is the height of the header so you mean the remaining viewable height of the page*/
+    background-color: #1A253A;
+    margin-top:60px;/*This is because when you make the header fixed, part of the text that comes after it does not apper bcz it's like they are in the same possition so you are subtracting the size of the header feom the size of the screen vertically*/
+    background-image: url(../images/sadness-4383914_1920.png),url(../images/pexels-apasaric-3122779.jpg);/*Note that the picture at the complete top comes first*/
+    background-size: 140vh, cover;/*The 1st size is for the 1st image and the 2nd is for the 2nd*/
+    background-repeat: no-repeat;
+    background-position: bottom left 45%, center;/*For some reason top makes it bottom and vice versa.Idk y my computer is doing that but that is not the case for the youtuber. Anyways, bottom center is supposed to make the picture appear at the bottom center*/
+    display:flex;/*This makes them be next to each other horizontally*/
+    justify-content: center;/*This makes them move at the center horizontally*/
+    align-items: center;/*This makes them move at the center vertically*/
+    z-index:100;
+    column-gap: 230px;
+    /*I didn't find a good image that is why u'll notice it doesn't look good in the website even after all the css I'll apply according to the youtuber but I put it there to demonstrate some things I was trying to learn above.Please check the youtube video for the perfect reference*/
+}
+
+main .main-intro h1{
+    font-size: 4.5rem;
+    line-height: 1.3;/*This means the height that whatever size of text you are typing occupies*/
+}
+
+main p{
+    font-size: 1rem;
+    line-height: 1.8;/*This means the height that whatever size of text you are typing occupies*/
+    max-width: 300px;/*Use this instead of breaks for easier development of responsiveness. Once 300px have been reached, words move to the next line*/
+}
+
+main a{
+    margin-top: 30px;
+    font-size: 1rem;
+    display:block;/*You'll notie that if you remove this, the background color will overlap with the text at the top of this and u'll have to use more css idk y so just use this.But this is only if it is right under another piece of text. The margin I've added at the top is just for the purpose of space but even if you remove it, it doesn't overlap with the text on top.*/
+    background-color: var(--linkhover);
+    padding: 10px 20px;
+    width:fit-content;
+}
+
+main .main-quotes p{
+    border-left: 4px solid var(--linkhover);
+    padding-left: 20px;
+    margin: 40px 0;
+}
+
+main .main-quotes p:nth-child(2){/*2 inside the bracket means the second paragraph of this container*/
+    margin-left: 100px;
+}
+
+main .main-intro{
+    padding-bottom: 8vh;
+}
+
+main .main-quotes{
+    padding-bottom: 8vh;
+}
+
+/*CATEGORY SECTION*/
+
+.index-category{
+    width:100%;
+    padding: 60px 0;
+    background-color: #fff;
+    display:flex;
+    justify-content: center;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+
+.index-category p{
+    color:#1A253A;
+    text-align: center;
+    padding-bottom: 40px;
+    flex-basis: 100%;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+}
+
+.index-category-box{
+    width: 20rem;
+    height:20rem;
+    background-color: #111;
+    background-repeat: no-repeat;
+    background-size:cover;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;/*We put this here after creating the dark overlay. Check explanation in the dark-overlay class*/
+}
+
+.index-category-box:nth-child(2){/*we are starting from the 2nd one bcz the paragraph in the index-category-box is the first child*/
+    background-image: url(../images/Categories/programming.jpg);
+}
+
+.index-category-box:nth-child(3){
+    background-image:url(../images/Categories/production.jpg);
+}
+
+.index-category-box:nth-child(4){
+    background-image: url(../images/Categories/editing.jpg);
+}
+
+.index-category-box:nth-child(5){
+    background-image: url(../images/Categories/photoshop.jpg);
+}
+
+.dark-overlay{
+    position:absolute;/*Add position:relative to the section that holds these 4 boxes to ensure the black only shows in these boxes*/
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left:0;
+    background-color: #000;
+    opacity: 0.5;/*For opacity, 0 is practically no darkening while the more you increase, the darker it is*/
+    transition:all ease-in-out 200ms;
+    /*The above is for darkening the photos.*/
+}
+
+.index-category-box:hover .dark-overlay{
+    opacity:0;
+    /*When we hover, the dark overlay completely disappears because of opacity:0;. For opacity, zero is nothing and as we increase, it darkens*/
+}
+
+.index-category-box h3{
+    font-size: 2.2rem;
+    line-height: 1.5;
+    text-align:center;/*This is bcz we've tried to center it with justify-content in index-category-box but it isn't working for the 1st 2 boxes so this is our second resort*/
+    text-shadow: -2px 2px 4px #000;/*horizontal,vertical,blur effect, color.You'll notice that the shadow will move down verically bcz 2 is +ve, if it was -ve it would move up.2 makes it barely visible but if you want it to be more distinct, increase the number*/
+    z-index:100;/*This makes the words in the photos appear on top of the dark overlay after creating it*/
+}
+
+/*ABOUT SECTION*/
+.index-about{
+    width: 100%;
+    padding: 60px 0;
+    background-color: #1A253A;
+}
+
+.index-about-flex{
+    display:flex;
+    justify-content: center;/*Centers image horizonatally. Eg. If there is a horizontal line, the images will content will appear at the center of the line*/
+    align-items:center;/*Centers image vertically*/
+    column-gap:60px;
+}
+
+.index-about-img img{
+    width:250px;
+    height:230px;
+    border-radius: 50%;/*Makes image round*/
+}
+
+.index-about-text{
+    flex-basis: 350px;/*The maximum width that the text will occupy per line*/
+}
+
+.index-about-text p{
+    padding: 15px 0;
+    font-size: 1.3rem;
+    line-height: 1.8;
+}
+
+.index-about-text a{
+    font-size: 1.3rem;
+    display:block;/*You'll notie that if you remove this, the background color will overlap with the text at the top of this and u'll have to use more css idk y so just use this.But this is only if it is right under another piece of text. The margin I've added at the top is just for the purpose of space but even if you remove it, it doesn't overlap with the text on top.*/
+    background-color: var(--linkhover);
+    padding: 10px 20px;
+    width:fit-content;
+}
+
+.index-about-text a:hover{
+    background-color: var(--linkhover-2);
+}
+
+.index-about-skill{
+    flex-basis: 300px;/*Use this to set width of items in a flex box*/
+}
+
+.index-about-skill-bar{
+    width:calc(100% - 8px);
+    height:20px;
+    border:4px solid #0B0F16;
+}
+
+.index-about-skill-bar-fill{
+    width:100%;/*This means that it will take the width left inside*/
+    height:100%;/*This means that it will take the height left inside*/
+    background-color: var(--linkhover);
+}
+
+/*Changing the fill width. Not that I'm just taking the last part of the class name. Check how I've labelled in the html*/
+.htmlcss{
+    width: 95%;
+}
+
+.pr{
+    width: 85%;
+}
+
+.ps{
+    width: 75%;
+}
+
+.js{
+    width: 20%;
+}
+
+.ae{
+    width: 45%;
+}
+
+.ai{
+    width: 30%;
+}
+
+/*MOBILE VERSION*/
+/*View it from the inspector as you make these changes*/
+@media only screen and (max-width:600px){
+
+    main{
+    align-items: flex-end;/*This makes the content move at the bottom left of the flex box*/
+    }
+
+    main .main-intro{
+        padding-bottom: 8vh;
+    }
+
+    main .main-intro h1{
+    font-size: 5rem;
+    line-height: 1.3;
+    text-align:center;
+    }
+
+    main p{
+    text-align: center;
+    padding: 0 20px;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    }
+
+    main a{
+    margin: 30px auto;/*The 30px creates a margin at the top of the button*/
+    }
+
+    main .main-quotes{
+    display:none;
+    }
+
+    /*CATEGORY SECTION*/
+    .index-category{
+    padding: 40px 0 20px;
+    row-gap: 10px;
+    }
+
+    .index-category p{
+    padding-bottom: 20px;
+    }
+
+    .index-category-box{
+    width: calc(100% - 20px);
+    height:20rem;
+    }
+
+    /*ABOUT SECTION*/
+    
+    .index-about-flex{
+    flex-wrap:wrap;
+    row-gap:20px;
+    }
+
+    .index-about-img{
+    width: 60%;
+    }
+
+    .index-about-img img{
+    width: 100%;
+    }
+
+    .index-about-text{
+    flex-basis: 100%;
+    }
+
+    .index-about-text h2{
+    text-align:center;
+    }
+
+    .index-about-text p{
+    text-align:center;
+    }
+
+    .index-about-text a{
+    margin: 10px auto; /*10px:top, auto;sideways which makes it centered, if u wanted a bottom u could put it after auto*/
+    }
+
+}

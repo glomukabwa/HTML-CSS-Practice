@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/table.css">
+</head>
+<body>
+    
+    <section class="wrapper-main">
+        <table>
+            <!--Creating column groups. They help with styling-->
+            <colgroup>
+                <col span="2" style="background-color: aquamarine;"><!--Makes the first 2 columns blue. Don't mind the cells that are remaining green(if u uncomment the styling in css), I've styled them like that but if I remove that style, then they will be blue-->
+                <col span="1" style="background-color:brown;"><!--The third column the next 1 column after the two columns-->
+                <col span="1" style="background-color: blueviolet;">
+            </colgroup>
+            <!--We make tables row after row-->
+            <tr><!--table row-->
+                <th style="width: 300px;">Name</th><!--table header-->
+                <!--Note that when you set the width of the header, it applies to all attributes under the header-->
+                <th>Eye colour</th>
+                <th>Hair colour</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Daniel</td><!--table data which is equal to one column-->
+                <td>Blue</td>
+                <td>Dark blond</td>
+                <td>31</td>
+            </tr>
+            <tr>
+                <td style="height:100px">Basse</td>
+                <td>Brown</td>
+                <td>White black</td>
+                <td>5</td>
+            </tr>
+            <!--Spanning a column-->
+            <tr>
+                <td colspan="2">Anna</td><!--It's going to occupy its space and the space next to it-->
+                <td>Red</td>
+                <td>25</td>
+            </tr>
+            <!--Spanning a column-->
+            <tr>
+                <td rowspan="2">Jane</td><!--It's going to occupy its space and the space next to it-->
+                <td>Red</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>Red</td>
+                <td>25</td>
+            </tr>
+        </table>
+    </section>
+
+</body>
+</html>

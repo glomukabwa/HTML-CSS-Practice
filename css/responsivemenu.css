@@ -1,0 +1,344 @@
+@font-face {
+    font-family: Playpen;
+    src: url(../fonts/Playpen_Sans/PlaypenSans-VariableFont_wght.ttf);
+}
+
+:root{
+    --menu-count: 5;/*The number of menus*/
+}
+
+body{
+    background-color: #111;
+}
+
+.mobile-menu-btn{
+    display:none;
+}
+
+.header-main{
+    width:100%;
+    height:60px;
+    padding: 0 60px;
+    background-color: #ffffff;
+    display:flex;
+    justify-content:space-between;
+    position:fixed;
+    top:0;
+    z-index:100;/*This is to make sure that we can always see the header cz it will always appear on top of everything cz it has a high z-index. Later we'll put  a burger menu and we'll give it a z-index of 200. I think u can either use this or 1 and 2*/
+}
+
+.header-main nav{
+    display: flex;
+}
+
+.header-main .logo{
+    height:40px;
+    width:fit-content;
+    align-self:center;/*Working cz logo is in nav which has display:flex*/
+    cursor:pointer;
+}
+
+.header-main .logo img{/*This is the actual image. The above is the size the logo occupies*/
+    height:100%;/*I'm removing this cz it looks weird*/
+}
+
+.header-main ul{
+    height:100%;
+    padding-left:40px;
+    list-style:none;
+    display:flex;
+    align-content:center;
+}
+
+.header-main ul li{
+    position:relative;/*This makes the items in the drop down appear directly below the respective menu*/
+}
+
+.header-main ul li a{
+    display:block;/*Cz they are inline elments and inline elements don't allow some css like width,height, vertical padding and margins, float etc*/
+    padding:0 10px;
+    height:100%;
+    line-height: 60px;
+    font-size: 1rem;
+    font-family: Playpen;
+    color:#000000;
+    background-color: #fff;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:all ease-in-out 100ms;/*This is for the hover effect and yes it's supposed to be here*/
+}
+
+.header-main ul li a:hover{
+    background-color: #2a2a2a;
+    color:#fff;
+}
+
+
+/* DROPDOWN STYLING START*/
+.header-main ul li ul{
+    visibility: hidden;
+    opacity:0;
+    display:none;/*If you don't put this, u'll notice that when the dropdown appears, there is a flickering of a different horizontal dropdown next to it so this makes sure that we can never see it before hovering*/
+    /*Why use all the 3 above:
+    visibility: hidden	Hides the element but keeps the space in layout;
+    opacity: 0	Makes the element fully transparent (still takes space and is interactive)
+    display: none	Completely removes the element from the layout and rendering tree therefore no flickering. The browser treats it as non-existent, which is important before hover 
+    opacity: 0 + visibility: hidden: Enables smooth transition effects when showing/hiding.
+    So make sure they are always included*/
+    position:absolute;
+    left: -40px;/*If you don't do this, the drop doen will be slightly on the right of the menu it's under so this makes it move to the left and directly below a menu*/
+    transition:all ease-in-out 100ms;
+}
+
+.header-main ul li ul a{
+    white-space: nowrap;/*This ensures that for the drop down, if the name is lon, it DOESN'T move to the next line cz that will form a really long dropdown*/
+}
+
+ul li:hover>ul {/*This is saying that for a list item with an unordered list underneath, display the list underneath when we hover on it*/
+    visibility:visible;
+    opacity:1;
+    display:block;
+    /*You need to reset all 3 to make the dropdown visible*/
+}
+/* DROPDOWN STYLING STOP*/
+
+
+.header-main .sm{
+    align-self: center;
+    display:flex;
+}
+
+.header-main form{
+    height: 40px;
+    padding-right: 5px;
+    display:flex;
+    border: 1px solid #aeaeae;
+    border-radius: 20px 100px 100px 20px;
+    width:fit-content;
+    align-self:center;
+}
+
+.header-main form input{
+    height: 100%;
+    width:200px;
+    padding:0 10px 0 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Playpen;
+}
+
+.header-main form input:focus{
+    border: 1px solid #111;/*So that the border turns black when we type sth in the input box*/
+}
+
+.header-main form button{
+    width:fit-content;
+    padding: 0 5px 0 10px;
+}
+
+.header-main form button img{
+    height: 24px;
+    padding-top: 15%;
+    cursor:pointer;
+}
+
+.header-main .sm-links{
+    height:60px;
+    width:fit-content;
+    display:flex;
+    align-items:center;
+}
+
+.header-main .sm-links a{
+    display: block;
+    height:30px;
+    margin-left:10px;
+    cursor:pointer;
+    align-self:center;
+}
+
+.header-main .sm-links img{
+    height:100%;
+}
+
+@media only screen and (max-width: 600px){
+    /*Before burger button is clicked*/
+    .header-main{
+        display: none;
+    }
+
+    .mobile-menu-btn{
+        display:flex;
+        justify-content: center;
+        width:60px;
+        height:60px;
+        position: absolute;
+        top:0;
+        right:0;
+        z-index:200;
+        background-color:#fff;
+    }
+
+    .mobile-menu-btn img{
+        height: 80%;
+        align-self:center;
+    }
+
+    /*After burger button is clicked*/
+    .header-main{
+        height:100vh;
+        flex-wrap:wrap;
+        flex-direction: column;/*To make sure everything is now displayed in one column*/
+        padding:0;
+        justify-content: flex-start;
+    }
+
+    /*The above targets the different groups in the header so the groups will wrap but below we target the components inside the groups so eg the menus inside will wrap*/
+    .header-main nav{
+        width:100%;/*Width of the mobile device*/
+        height:80vh;
+        flex-wrap:wrap;
+        flex-direction: column;
+        align-content: stretch;/*This makes the things inside stretch and take up all the available space inside*/
+    }
+
+    .header-main .logo{
+        height:30%;
+        padding:0;
+        margin:0;
+        display:flex;
+        align-items:center;
+    }
+
+    .header-main .logo img{
+        height:60%;
+        align-self:center;
+    }
+
+    .header-main ul{
+        height:70%;
+        width:100%;
+        /*We set a padding and margin to 0 to reset everything just in case but his step is not always a must.One should probably check if doing this is needed but we just do it to be safe*/
+        padding:0;
+        margin:0;
+        flex-wrap:wrap;
+        flex-direction: column;
+        align-content: space-between;
+    }
+
+    .header-main ul li{
+        width:100%;
+        height:calc(100% / var(--menu-count));/*This is to ensure that if u add a new menu item, the space will be recalculated. You won't have to keep testing and checking to set the exact pixels that look nice*/
+        padding:0;
+        margin:0;
+        /*Giving all menu items a border on top*/
+        border-top: 1px solid #ddd;
+        /*We set a flex here, with nowrap and column, to make the dropdown go below the Gallery, and justify-content instead since we are using column, to center the text */
+        display:flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        transition: all ease-in-out 100ms;
+    }
+
+    .header-main ul li:nth-last-child(1) {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .header-main ul li a {
+        width: 100%;
+        height:fit-content;
+        padding: 0;
+        margin: 0;
+        text-align:center;
+        font-size:2.5rem;
+    }
+
+    .header-main ul li a:hover{
+        background-color: transparent;/*This is to cancel out the effects in the desktop version. If you don't put it, the hover background will still be grey*/
+        color: #111;
+    }
+
+    /*Adding a scrollin effect for when the drop down appears*/
+    .header-main nav{
+        overflow-y: scroll;
+        overflow-x:hidden;/*To ensure we don't scroll sideways*/
+    }
+
+    .header-main ul li ul{
+        /*Before menu is clicked*/
+        display:none;
+        /*After menu is clicked*/
+        flex-wrap: nowrap;
+        flex-direction: column;
+        position:absolute;
+        top: 0;
+        left:0;
+        z-index: 2000;/*Made incredibly high just to make sure  it's always at the top most*/
+    }
+
+    .header-main ul li ul li{
+        height:fit-content;
+        display: block;
+        background-color: #111;
+    }
+
+    .header-main ul li ul li a:hover{
+        background-color: #111;
+        color: #fff;
+    }
+
+    /*This is to mean that if a mu with a dropdown is clicked, do this:*/
+    .header-main ul li:focus>ul,
+    .header-main ul li:hover>ul{
+        display:flex;
+        /*In chrome, the display;flex will work and make the dropdown visible but in firefox, we need a combination of the 3 so to be safe, we put them all together*/
+        visibility:visible;
+        opacity:1;
+    }
+
+    .header-main .sm{
+        width:100%;
+        height:20vh;/*Cz the nav takes 80vh*/
+        margin:0;
+        padding:0;
+        flex-wrap:wrap;
+        flex-direction: column;
+    }
+
+    .header-main form{
+        padding-right:0;
+        width:90%;/*To ensure there's some padding*/
+        height:40%;
+    }
+
+    .header-main form input{
+        width:100%;
+        height:100%;
+        padding:0 10px 0 20px;
+        font-size:1.6rem;
+    }
+
+    .header-main form button{
+        padding: 0 5%;
+    }
+
+    .header-main form button img{
+        height: 5vh;
+        padding-top: 15%;
+    }
+
+    .header-main .sm-links{
+        height: 50%;
+        width:100%;
+        margin:0;
+        padding:0;
+        justify-content: center;
+    }
+
+    .header-main .sm-links a{
+        height: 60%;
+        margin: 0 2%;
+        padding:0;
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive menu</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/responsivemenu.css">
+</head>
+<body>
+    <div class="mobile-menu-btn">
+        <img src="images/icons/burger-bar.png" alt="mobile-menu-btn">
+    </div>
+    <header class="header-main">
+        <nav>
+            <div class="logo">
+                <img src="images/save-money.png" alt="website logo">
+            </div>
+            <ul>
+                    <li><a href="responsivemenu.html">Home</a></li>
+                    <li><a href="#">Gallery</a>
+                        <!--This is how you create a drop down. This list is gonna appear if we hover on Gallery.-->
+                        <ul>
+                            <li><a href="#">Graphic Design</a></li>
+                            <li><a href="#">Video Editing</a></li>
+                            <li><a href="#">Web Dev</a></li>
+                            <li><a href="#">Graphic Design</a></li>
+                            <li><a href="#">Video Editing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">About Me</a></li>
+                    <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="sm">
+            <form action="" method="post">
+                <input type="text" name="search" placeholder="Search...">
+                <button type="submit"><img src="images/searchbtn.png" alt="search button"></button>
+            </form>
+            <div class="sm-links">
+                <a href="#"><img src="images/instagram.png" alt="instagram link"></a>
+                <a href="#"><img src="images/facebook.png" alt="facebook link"></a>
+            </div>
+        </div>
+    </header>
+</body>
+
+<script  src="js/mobile.nav.js"></script>
+
+</html>

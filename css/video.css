@@ -1,0 +1,75 @@
+@font-face {
+    font-family: Playpen;
+    src: url(../fonts/Playpen_Sans/PlaypenSans-VariableFont_wght.ttf);
+}
+
+body{
+    background-color: #fff;
+}
+
+.wrapper-main{
+    width:700px;
+    margin:0 auto;
+}
+
+.my-video{
+    width: 700px;
+    height: auto;
+    object-fit: cover;/*If you don't put this, u'll notice some padding space between the video and wrapper. This makes the video fit fully in the alocated space*/
+}
+
+button{
+    padding:10px 16px;
+    background-color: #111;
+    font-size:20px;
+    font-family:Playpen;
+    border-radius:20px;
+    cursor:pointer;
+    color:#fff;
+}
+
+
+/*2nd Video*/
+.video-container{
+    position:relative;
+    width: 700px;
+    /*Position:relative positions this an element normally, but allow it to be nudged from its original spot
+    using top, left, right, or bottom. I'm not using top,bottom etc cz I had already made the wrapper be centered
+    but what this means is u can use top, bottom etc to style if u need to
+    It's used as a reference point for absolutely positioned child elements. So it's essence is mostly so that 
+    the image can refer to this when placed*/
+}
+
+.poster-image{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    /*position: absolute removes an element from the normal document flow and positions it relative to its 
+    closest positioned ancestor (i.e., an ancestor with position: relative, absolute, or fixed).
+    In this case, the ancestor is video-container and we put position:relative there and set a width so that 
+    the image can reference the container
+    If poster-image is position: absolute inside a parent div (which is position: relative), then:
+    top: 0 means top edge of parent, left: 0 means left edge of parentwidth: 100% 
+    & height: 100% means fill the parent completely
+    Purpose of position absolute: It allows you to overlay elements on top of each other */
+    background-image: url(../videos/son-goku-dragon-ball-dragon-ball-z-wallpaper-preview.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index:1;/*See how z-index works in the explanation in .secondvideo*/
+    transition: opacity 0.3s;
+}
+
+.secondvideo{
+    width:100%;
+    height:100%;
+    z-index:2;
+    /*z-index controls the stacking order of elements on the z-axis (like layers of paper on a desk).
+    Elements with higher z-index appear on top. So the video will appear on top of the poster transparently,
+    until you hit play. When you hit play, the z-index property starts being applied and it appears on top of
+    the poster
+    Z-index only works on positioned elements(relative, absolute, or fixed) so that's why we've put
+    position:relative below. If you don't,the browser will ignore z-index. It's like display:flex and justify-content etc*/
+    position:relative;
+}

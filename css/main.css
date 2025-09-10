@@ -1,0 +1,417 @@
+/*body:after{/*This is for loading up things initially to avoid flickering when hovering
+    position:absolute;
+    width:0;
+    height:0;
+    overflow:hidden;
+    z-index: -1;
+    content:url(../images/Snapchat-1494510161.jpg) url(../images/Snapchat-1494510161_bw.jpg);
+    }
+
+    .image{
+    width:300px;
+    height:300px;
+    background-image: url(../images/Snapchat-1494510161.jpg);
+    background-size:cover;/*Makes image cover the whole div size
+    background-repeat: no-repeat;/*This is for when the image is repeating itself to cover the size and you don't want it to. If the background-size was smaller eg 30%, this would help but since it's not, u don't see the effect
+    background-position: center;
+    transition: all ease-in-out 100ms;/*Transition to hover image takes 100ms to ease to bw and to ease out of bw. Other times eg 1s,200ms etc.s is seconds, ms is milliseconds
+}
+
+.image:hover{/*Here you put only what you want to change when you hover the mouse
+    background-image: url(../images/Snapchat-1494510161_bw.jpg);
+}/*You'll notice it flicker on the first hoover cz it is loading up this image first. To prevent this, load it up first.(CSS in the beginning)
+
+/*.header-main{
+    width:100%;
+    background-color: black;
+    height:60px;
+    display:flex;/*Automatically makes them sit next to each other horizontally
+    flex-direction:row;/*Used to change direction of the automatic arrangement of flex box. Row will not bring any changes bcz it causes the automatic arrangement but it you replace them with column, they'll arrange themselves vertically, row reverse will switch the positions horizontally etc
+    flex-wrap: wrap;/*wrap makes content move to the next line if it doesn't fit.Nowrap will do the opposite. Experiment on the other options
+    justify-content: space-between;/*space between makes the divs have equalspace between them, center makes all the 3 divs come to the center etc
+    align-items:center;/*Puts the divs at the center(vertically though cz u've already defined how you want them to look horizontally)
+}
+
+.header-main div{
+    height:30px;
+    flex:0 0 100px;/*This means that the flex grow is 0, the flex shrink(opposite of grow) is 0 and the flex-basis is 100px
+}
+
+.div-1{
+    background-color: blueviolet;
+    order:1;/*Makes it appear as the first one
+    /*flex-basis:100px;/*It's like width but it tells the browser that there should always be 100px for this div.
+    flex-grow:1;/*Tells the browser that as much as basis or minimum is 100px, if there is more space then let it grow times 1 to occupy that space
+    align-self:flex-end/*Makes the div ignore align-items:center and it moves to the bottom vertically
+}
+
+.div-2{
+    background-color: greenyellow;
+    order:2;
+    /*flex-basis:100px;
+    flex-grow:2;/*Tells browser to grow times two if there is additional space so it will be bigger than div 1 if there is space
+}
+
+.div-3{
+    background-color:orange;
+    order:3;
+    /*flex-basis:100px;
+}*/
+@font-face {/*This is what you do after you download the font. You give it a name and a url*/
+    font-family: Playsans;
+    src: url(../fonts/Playpen_Sans/PlaypenSans-VariableFont_wght.ttf);
+}
+
+:root{/*root refers to the html tag at the beginning of a html document*/
+    --charcoal-background:#1e1e1e;
+    /*To declare a variable, you put two dashes(--) before the name of the variable you want to create*/
+    /*the dash btwn charcoal and background means nothing. It's just used to connect the words, even if you remove it, it'll still be okay*/
+    /*It advisable to use variables for easy change cz eg if you want to change a color you don't have to change it at every instance it appears*/
+    --whitebackground:#fff;
+    --linkhover:#c13584;
+    --linkhover-2:hwb(321 24% 40% / 0.824);
+    font-size: 62.5%;/*62.5% * default(16px) = 10px*/
+    /*We use percentage instead of directly writing 10px because if someone wants to increase the font-size of their browser to see ur website well, and u've set it to a fixed px eg 10px, the change they are making won't reflect but if it's in percentage and they want to set the default in their browser to eg 20px, change will reflect cz the new size will be 62.5% * (the default they have set)*/
+}
+
+body{
+    background-color: var(--charcoal-background);/*This is how you use a variable*/
+}
+
+.body::after{
+    position:absolute;
+    width:0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content:url(../images/facebook-color.png) url(../images/instagram-color.png);
+}
+
+.wrapper-main{
+    width: 850px;
+    margin: 0 auto;/*Can be used instead of flexbox to center a container*/
+}
+
+h1{
+    /*When changing the px to rem, only change the ones describing font-size and line-height. However, if u do that, u'll notice that if u change the settings of ur browser to a different default size eg 20px, the font will increase but the boxes won't so they'll look smaller so just change their widths and heights to rem too to ensure ur website is more user friendly*/
+    /*I'm not changing all the px to rem cz I'm not sure about some but if you want to be sure, increase ur default size in your browser and see what needs to be changed*/
+    font-size: 2.6rem;/*2.6 * 10px = 26px*/
+    /*For line-height, you use a chart to determine what the pixels are equivalent to. I've taken a screenshot of the chart he used. It's a bit unclear so search it up on the internet*/
+    line-height: 1.5;/*This means the height that whatever size of text you are typing occupies*/
+    color:#fff;
+    font-family: Playsans;
+    font-weight: 600;/*Boldens it*/
+    text-transform:uppercase;
+}
+
+h2{
+    font-size: 2.8rem;
+    line-height: 1.5;/*This means the height that whatever size of text you are typing occupies*/
+    color:#fff;
+    font-family: Playsans;
+    font-weight: 600;/*Boldens it*/
+    text-transform:uppercase;
+}
+
+h3{
+    font-size: 2.6rem;
+    line-height: 1.5;/*This means the height that whatever size of text you are typing occupies*/
+    color:#fff;
+    font-family: Playsans;
+    font-weight: 600;/*Boldens it*/
+    text-transform:uppercase;
+}
+
+p{
+    font-size: 1.4rem;
+    line-height: 1.75;
+    color:#fff;
+    font-family: Playsans;
+}
+
+a{
+    font-size: 1.4rem;
+    line-height: 1.75;
+    color:#fff;
+    font-family: Playsans;
+    cursor:pointer;
+}
+
+.header-main{
+    position:fixed;/*makes sure that it doesn't move even if you scroll*/
+    top:0;/*This means that there shouldn't be space between it and the top. If tou put bottom:0; it will move to the complete bottom*/
+    width:100%;
+    /*width:calc(100% - 500px);/*This is used to calculate.Notice that you can use different measurements(p% and px) and it will still work*/
+    height:6rem;
+    background-color:var(--whitebackground);
+    display:flex;
+    justify-content: space-between;
+    z-index:1000;
+}
+
+.header-main-logo{
+    width:fit-content;/*The width = content inside the div which is the image*/
+    height:100%;
+    padding-left: 60px;
+    display: flex;
+}
+
+.header-main-logo img{
+    height:4rem;
+    align-self: center;/*You use align self when you want a signle component in the flex box to be centered, moved to end etc but u use align items when you mean all the content in the flex box should be at the center,end etc.*/
+}
+
+.header-main-nav{
+    width:fit-content;
+    height:100%;
+}
+
+.header-main-nav ul{
+    list-style: none;/*If we didin't have the reset style sheet u would have seen a difference. It removes the bullets of an unordered list*/
+    margin-left: 30px;/*I'm not changing the margins and paddings to rem cz I feel like they shouldn't change*/
+}
+
+.header-main-nav ul li{
+    display:inline;/*Makes the items in the list lie next to each other horizontally*/
+    float:left;/*Makes sure that the pointer doesn't shift to cursor when rou are moving the mouse to test all the links*/
+}
+
+.header-main-nav ul li a{
+    padding:0 10px;
+    font-family:Playsans;/*This is for the downloaded font*/
+    /*font-family:"Roboto", sans-serif;/*This is for the online linking*/
+    /*Do not change the line-height below when you are changing pixels to rem cz we're using it to center*/
+    line-height: 60px;/*You set it to the height of the header-main to make the text inside centered.*/
+    color:#000;
+    display:block;/*Makes the links block elements*/
+    height:100%;
+}
+
+.header-main-nav ul li a:hover{
+    color: var(--linkhover);
+}
+
+.header-main-sm{
+    width:fit-content;
+    height:100%;
+    padding-right: 60px;
+    display:flex;
+    align-items: center;
+    column-gap:10px;/*Instead of putting padding for each logo, put a column gap fro every item in the div*/
+}
+
+.header-main-sm-fb{
+    width:2rem;
+    height: 2rem;
+    background-image: url(../images/facebook.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.header-main-sm-fb:hover{
+    background-image: url(../images/facebook-color.png);
+}
+
+.header-main-sm-in{
+    width:2rem;
+    height: 2rem;
+    background-image: url(../images/instagram.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.header-main-sm-in:hover{
+    background-image: url(../images/instagram-color.png);
+}
+
+/*FOOTER*/
+
+.footer-main{
+    width: 100%;
+    padding: 60px 0 100px;/*Top ,left and right, bottom*/
+    background-color: #141414;
+}
+
+.footer-main-flex{
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+
+.footer-testimony{
+    flex-basis:20%;
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+
+.footer-testimony img{
+    width:60%;
+    height:70%;
+    border-radius:50%;
+}
+
+.footer-testimony p{
+    text-align: center;
+    font-size:1.6rem;
+    padding:20px 20px 0;
+}
+
+.footer-getintouch{
+    padding: 10px 20px;
+    margin: 70px 0 50px;
+    border: 2px solid #fff;
+    font-weight:600;
+    transition: all ease-in-out 200ms;
+}
+
+.footer-getintouch:hover{
+    border: 2px solid var(--linkhover);
+}
+
+.footer-sitemap{
+    flex-basis: 100%;
+    display:flex;
+}
+
+.footer-sitemap a, p{
+    line-height: 30px;
+}
+
+.footer-sitemap a:hover{
+    opacity:0.8;
+}
+
+.footer-sitemap ul:nth-child(1){
+    border-left: 4px solid var(--linkhover);
+    padding-left:15px;
+}
+
+.footer-sitemap ul:nth-child(1), .footer-sitemap ul:nth-child(2){
+    flex-basis:180px;/*Affects the width*/
+}
+
+.footer-sitemap ul:nth-child(3){
+    flex-basis: 330px;
+}
+
+.footer-sitemap ul:nth-child(3) p{
+    text-transform: uppercase;
+}
+
+.footer-sitemap ul:nth-child(3){
+    flex-basis: 330px;
+}
+
+.footer-sitemap ul:nth-child(4) p{
+    text-align:right;
+}
+
+.burger-menu, .burger-menu-btn {
+    display:none;
+}
+
+/*MOBILE VERSION*/
+/*View it from the inspector as you make these changes*/
+@media only screen and (max-width:600px){
+
+    .burger-menu-btn{
+        display:block;/*If you had set sth as display none, you make it appear using display:block*/
+        margin-left: 10px;
+        width:50px;
+        height: 50px;
+        background-image: url(../images/icons/burger-bar.png), url(../images/icons/close.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center , center left 50px; /*1st img, 2nd img*/
+    }
+
+    .burger-menu{
+        display: none;
+        position: fixed;
+        width:100%;
+        height:100vh;
+        z-index: 900;
+        background-color: #111;
+    }
+
+    .burger-menu ul{
+        width:100%;
+        height: calc(100vh - 60px);
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+
+    .burger-menu ul li{
+        flex-basis: 100%;
+        border-top: 2px solid #000;
+    }
+
+    .burger-menu ul li a{
+        display:block;
+        height: 100%;
+        font-size: 3rem;
+        padding: 30px 0;
+        flex-basis: 100%;
+        text-align:center;
+    }
+
+    .burger-menu ul li:last-child{
+        border-bottom: 2px solid #000;
+    }
+
+    .wrapper-main{
+    /*width: 80%;/*I put 80% to leave the 20% for padding on each side*/
+    width: calc(100% - 40px)
+    }
+
+    .header-main-logo{
+    padding-left: 20px;
+    }
+
+    .header-main-nav{
+    display:none;/*This makes the content of the tag not to appear so the navigation won't appear*/
+    }
+
+    .header-main-sm{
+    padding-right: 20px;
+    }
+
+    /*FOOTER*/
+
+    .footer-testimony{
+    display:none;
+    }
+
+    .footer-getintouch{
+    margin: 0 0 50px;
+    }
+
+    .footer-sitemap{
+    flex-wrap:wrap;
+    }
+
+    .footer-sitemap ul:nth-child(1){
+    border-left: none;
+    padding-left:0;
+    }
+
+    .footer-sitemap ul:nth-child(1), 
+    .footer-sitemap ul:nth-child(2),
+    .footer-sitemap ul:nth-child(3),
+    .footer-sitemap ul:nth-child(4){
+    flex-basis:100%;
+    text-align:center;
+    padding-bottom:20px;
+    }
+
+    .footer-sitemap p{
+        padding:0 20px;
+    }
+
+    .footer-sitemap ul:nth-child(4) p{
+        text-align:center;
+    }
+
+}

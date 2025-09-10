@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/video.css">
+</head>
+<body>
+    
+    <section class="wrapper-main">
+        <video class="my-video" src="videos/Mui Goku live wallpaper 4K by motion graphics en koncepto.mp4" controls muted loop poster="videos/son-goku-dragon-ball-dragon-ball-z-wallpaper-preview.jpg"></video>
+        <!--The word "controls" ensures that you have the play button, that line that indicates where the video has reached etc. If you don't add it, your video will appear like a picture, you won't be able to click play-->
+        <!--I've set the width to be the same as the wrapper-->
+        <!--If you want it to autoplay, you add autoplay and muted. If you put autoplay alone, it doesn't work. The developers of html:5 didn't want you to scare people when they load your website so that's why you have to put them together for them to work-->
+        <!--I've removed autoplay rn cz I wanted to show how a poster works but plz note that you put it within the first set of video brackets, where you put controls, muted etc-->
+        <!--If you just want it to automatically be muted, add muted only and the user starts playing it, it will be muted until she presses play-->
+        <!--loop is self-explanatory-->
+        <!--poster is the picture you want to appear before your video starts playing. You'll notice that it's bigger than the video. I've asked chat and it says that you can't target the poster however, the solution is manually sizing the poster then placing it here. Or you can place a div before the first video tag and place a background image there, you'll use position absolute and relative to make it appear on top of the video, then use javascript to change the opacity to 0 before the video starts to play. I'll demonstrate this with a second video below-->
+        <br>
+        <button onclick="playPause()">Play/Pause</button>
+        <button onclick="halfSize()">Half size</button>
+        <button onclick="normalSize()">Normal size</button>
+
+        <!--Making a text have the javascript effect-->
+        <h2 onclick="playPause()" style="cursor:pointer;">This plays or pauses the video</h2>
+
+        <!--Using background image instaed of poster-->
+        <br><br>
+        <div class="video-container">
+            <div class="poster-image"></div>
+            <video class="secondvideo" src="videos/Mui Goku live wallpaper 4K by motion graphics en koncepto.mp4" controls muted loop></video>
+        </div>
+        
+
+        <!--If you want to cater to really old browsers that don't support mp4, do this:-->
+        <!--<video>
+            <source src="videos/Mui Goku live wallpaper 4K by motion graphics en koncepto.mp4" type="video/mp4">
+            <source src="videos/Mui Goku live wallpaper 4K by motion graphics en koncepto.mp4" type="video/ogg">
+            <source src="videos/Mui Goku live wallpaper 4K by motion graphics en koncepto.mp4" type="video/webm">
+            Your browser does not support html5 videos
+            //What this means is, play the mp4 video but if the browser does not support this,  play the ogg version, if it also doesn't support this, play the webm. If the browser doesn't support all of them, display the sentence after the videos
+            //I think you have to have all the different versions of the videos for this to work though
+            //Please not that the modern day browsers support mp4 so this isn't really necessary
+            The forward slashes indicate that the above are supposed to be comments if you uncoment the whole of this 2nd video section
+        </video>-->
+    </section>
+
+    <script>
+        /*You can use an external file like I did for the burger button or you can type it in your html file. I'm gonna type te javascript here for this lesson*/
+        let myVideo = document.querySelector(".my-video");
+        /*let is used to indicate the creation of a variable,
+        myVideo is the name of the variable I'm creating,
+        document means I have in a specific document,
+        querySelector means select this class in this document
+        in the brackets you put the class name like you do in css*/
+
+        function playPause(){/*A function is code that executes a task when it is called. The name of this function is playPause*/
+            if(myVideo.paused){
+                myVideo.play();
+            }
+            else{
+                myVideo.pause();
+            }
+
+            /*
+            myVideo.paused;/*This is a property. A property describes sth. For example, one of my properties is that I have brown eyes. This property tells us that the video is paused. See how it's used in the function
+            myVideo.pause();/*This is a method. A method is sth that does sth. Ok think about it like this, the method makes the video pause then the property describes to us that the video is paused. querySelector is also a method bcz it selects sth so that's y I'm saying that a method is sth that does sth.*/
+        }
+
+        function halfSize(){
+            myVideo.style.width = "350px";/*This is setting a property. Width is a property, you want to change the property to half its size*/
+            /*The reason we're not typing the width like this: "350px" is because width is a numeric property not a string. If you put a string, the video will disappear bcz the browser gets confused*/
+             myVideo.style.height = "197px";
+        }
+
+        function normalSize(){
+            myVideo.style.width = "700px";
+            myVideo.style.height = "394px";
+        }
+
+        let posterImage = document.querySelector(".poster-image");
+        let secondVideo = document.querySelector(".secondvideo");
+
+        secondVideo.addEventListener('play', function(){
+            posterImage.style.opacity = 0;
+            /*We're putting this to ensure that the video and poster never appear at the same time
+            Even though the video z-index is higher, chat says that we should make the opacity 0 so that
+            they never appear at the same time. So when the video is playing, yes the poster is behind it
+            but I'm guessing to be safe, we're making it transparent*/
+        })
+
+    </script>
+
+</body>
+</html>

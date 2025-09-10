@@ -1,0 +1,55 @@
+@font-face{
+    font-family:Playpan;
+    src:url(../fonts/Playpen_Sans/PlaypenSans-VariableFont_wght.ttf);
+}
+
+body{
+    font-family:Playpan
+}
+
+.wrapper-main{
+    width:500px;
+    margin: 0 auto;
+}
+
+textarea, input{
+    border: 1px solid #ccc;
+}
+
+textarea:focus, /*This pseudoclass(focus) ensures that when you click the box it changes color to indicate that this is the box being typed in. It makes it more user friendly*/
+input[type="text"]:focus{/*I've specified the input type so that it doesn't apply for radio buttons etc*/
+    outline:1px solid blue;
+}
+
+textarea{
+    width:100%;
+    resize:vertical;/*Normally you can resize the textarea in the website both vertically and horizontally but this ensures that you can only do it either horizontally or vertically depending on what you specify*/
+}
+
+/*If your radio buttons, check boxes etc are not appearing as they are supposed to(maybe cz u can't disable the reset stylesheet), do this: */
+input[type="radio"]{
+    appearance: radio;/*This will make them look like radio buttons*/
+}
+
+input[type="checkbox"]{
+    appearance: checkbox;
+}
+
+select{
+    border: 1px solid #ccc;
+    width:200px;
+}
+
+button{
+    background-color: bisque;
+}
+
+input[type="text"], textarea, select, button{
+    padding:10px;
+    border-radius:10px;
+}
+
+button:hover{
+    background-color: rgb(215, 158, 88);
+    cursor:pointer;
+}

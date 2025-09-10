@@ -1,0 +1,86 @@
+:root{
+    font-size:62.5%;
+}
+
+body{
+    background-color: #111;
+    color:#fff;
+    text-align: center;
+}
+
+.wrapper-main{
+    width: 800px; 
+    padding: 80px 0;
+    margin: 0 auto;
+    border:2px solid blue;
+}
+
+h1{
+    font-size: 7rem;
+}
+
+p{
+    font-size: 2rem;
+}
+
+a{
+    display:block;
+    width:fit-content;
+    border:4px solid #fff;
+    padding: 8px 15px;
+    margin: 15px auto 0;
+    font-size: 2rem;
+}
+
+/*Making a website more responsive*/
+/*If you inspect and the responsive conditions are not being reflected, just close it and open it again*/
+
+@media only screen and (max-width: 600px) and (orientation:landscape) {
+    /*max-width: 600px means from 600px - 0px, follow the instructions written below*/
+    /*The instructions will be followed only if noth max-width and orientation conditions have been fulfilled*/
+    /*In here you will include all the tags you want to change eg when the space is below 600px, I want width of content in the wrapper-main to fit the screen (100% of screen)*/
+    .wrapper-main{
+      width: 100%; /*I had given it a fixed width but when I went to see how it will appear for mobile devices, I found that there's too much scrolling but when you put it to 100%, it fits the width of any device and moves to the next line if the space is not enough*/
+    }
+}
+
+/*The typical breakpoints are 600px, 601px, 768px, 992px, 1200px*/
+
+/*Uncomment the 3 medias below and comment the 4th media to see the effect of the 3 medias
+
+/*@media only screen and (min-width: 601px) {/*601 to maximum but we have 768px next so 601
+ to 768
+
+    .wrapper-main{
+        width:100%;
+        background-color: red;
+    }
+}
+
+@media only screen and (min-width: 768px) {/*768 to 992
+
+    .wrapper-main{
+        width:100%;
+        background-color: green;
+    }
+}
+
+@media only screen and (min-width: 992px) {/*992 to maximum of whatever computer sb will have (IDK y he didn't do up to 1200 but he said sth about his computer being 1000px so I'm guessing he's doing up to closest size of his computer
+
+    .wrapper-main{
+        width:100%;
+        background-color: orange;
+    }
+}*/
+
+/*Observe how the colour changes for each size above*/
+/*If you put the @media then the bracket with the condition, it'll still work. The "only screen" is to accomodate people who may use really old browsers (which honestly rarely happens but remember we wanna cater to all users). The "and" for connecting all conditions, u'll notice that.*/
+
+/*To reduce creating so many media tags for width, you can do this:*/
+@media only screen and (min-width: 601px) and (max-width:768px) {/*601 to 768*/
+
+    .wrapper-main{
+        width:100%;
+        background-color: yellow;
+    }
+}

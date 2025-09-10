@@ -1,0 +1,49 @@
+@font-face{
+    font-family: Playpen;
+    src:url(../fonts/Playpen_Sans/PlaypenSans-VariableFont_wght.ttf)
+}
+
+body{
+    background-color: #fff;
+    font-size:20px;
+    font-family:Playpen;
+}
+
+.wrapper-main{
+    width: 900px;
+    margin: 0 auto;
+}
+
+table,
+th,
+td {
+   border-collapse:separate; /*Makes sure borders don't merge eg if the table border is 4px and each cell has 2px, they normally merge and just appear as 4px but with this, they'll appear as 6px*/ 
+   border-radius:20px;
+   padding:20px;
+   /*border-collapse:collapse; /*Will undo separation and the borders will merge*/
+   border-spacing: 20px;/*Creates space but plz not that this cannot work if there is border-collapse:collapse which is the default so for this to work make sure u've set the borders to border-collapse:separate*/
+}
+
+table{
+    width: 100%;
+    border:4px solid black;
+    border-style: dotted; /*Styling a border*/
+    border-color:red;/*Changes border color from black*/
+}
+
+th{
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+td{
+    border: 2px solid black;
+}
+
+table tr th:nth-child(2){
+    width:300px;/*This sets the width of the  second th to 400px. */
+}
+
+table tr:nth-child(even){/*All the even rows*/
+    background-color: yellowgreen;
+}
